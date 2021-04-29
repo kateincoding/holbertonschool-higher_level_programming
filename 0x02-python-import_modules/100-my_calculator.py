@@ -14,7 +14,8 @@ if __name__ == "__main__":
         op = operators[i][0]
         if argv[2] == op:
             print("{} + {} = {}".format(a, b, operators[i][1](a, b)))
-            exit(0)
+            break
         i += 1
-    print("Unknown operator. Available operators: +, -, * and /")
-    exit(1)
+        if (i == 4):
+            print("Unknown operator. Available operators: +, -, * and /")
+            exit(1)
