@@ -13,7 +13,7 @@ if __name__ == "__main__":
     while (i <= 3):
         op = operators[i][0]
         if argv[2] == op:
-            print("{} + {} = {}".format(a, b, operators[i][1](a, b)))
+            print("{} {} {} = {}".format(a, argv[2], b, operators[i][1](a, b)))
             break
         i += 1
         if (i == 4):
