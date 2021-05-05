@@ -16,6 +16,8 @@ int _compare_extreme_nodes(listint_t **head, listint_t *tail)
 	result = _compare_extreme_nodes(head, tail->next);
 	result = ((*head)->n == tail->n);
 	*head = (*head)->next;
+	if (result == 0)
+		return (0);
 
 	return (result);
 }
