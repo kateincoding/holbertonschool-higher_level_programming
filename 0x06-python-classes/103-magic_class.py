@@ -2,9 +2,9 @@
 import math
 """Class MagicClass"""
 
+
 class MagicClass:
     """Magic class"""
-
     def __init__(self, radius=0):
         """ Init """
         self.__radius = 0
