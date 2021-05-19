@@ -2,7 +2,6 @@
 import math
 """Class MagicClass"""
 
-
 class MagicClass:
     """Magic class"""
 
