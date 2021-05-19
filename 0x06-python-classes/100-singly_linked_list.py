@@ -34,12 +34,13 @@ class Node:
         else:
             raise TypeError("next_node must be a Node object")
 
+
 class SinglyLinkedList:
     """Class LinkedList"""
     def __init__(self):
         """Function to initialize the Linked List"""
         self.__head = None
-    
+
     def sorted_insert(self, value):
         """ Insert a new node in the correct index
         of a sorted linked list"""
