@@ -29,10 +29,10 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """"set the pointer of next_node"""
-        if not value is None or not isinstance(value, Node):
-            raise TypeError("next_node must be a Node object")
-        else:
+        if isinstance(value, Node) or value is None:
             self.__next_node = value
+        else:
+            raise TypeError("next_node must be a Node object")
 
 class SinglyLinkedList:
     """Class LinkedList"""
