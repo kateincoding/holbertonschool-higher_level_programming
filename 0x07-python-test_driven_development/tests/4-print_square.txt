@@ -77,6 +77,9 @@ We have to test all cases with invalid arguments
 
 Passing a negative number
 
+    >>> print_square(-3)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
 
 Passing a float number
 
@@ -154,7 +157,7 @@ We have to test infinit number(float('inf')) and not a number
 True or False
 =============
 
-Parsing True and false as arguments
+Passing True and false as arguments
     >>> print_square(True)
     Traceback (most recent call last):
     TypeError: size must be an integer
