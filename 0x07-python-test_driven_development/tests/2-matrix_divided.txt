@@ -42,8 +42,7 @@ Testin few basic divisions, parging normal arguments
     >>> matrix_divided([[3],[6]], 5)
     [[0.6], [1.2]]
 
-Parcing negative numbers
-------------------------
+Parcing negative numbers:
 
     >>> matrix_divided([[-14],[-13]], -5)
     [[2.8], [2.6]]
@@ -54,8 +53,7 @@ Parcing negative numbers
     >>> matrix_divided(matrix , -100000)
     [[-0.0, -0.0, -0.0], [-0.0, -0.0, -0.0]]
 
-Mixed Integer and floats
-------------------------
+Mixed Integer and floats:
 
     >>> matrix_divided(matrix , -3.5)
     [[-0.29, -0.57, -0.86], [-1.14, -1.43, -1.71]]
@@ -80,22 +78,19 @@ We'll parse not allowed inputs, we espect error messages instead
 
     >>> matrix = [[2, 3, 4], [4, 5, 6], [4, 5, 6]]
 
-Division is not allowed
------------------------
+Division is not allowed:
 
     >>> matrix_divided(matrix, 0)
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
 
-Only int of float as second argument
-------------------------------------
+Only int of float as second argument:
 
     >>> matrix_divided(matrix, "hello")
     Traceback (most recent call last):
     TypeError: div must be a number
 
-cows must have same size
-------------------------
+cows must have same size:
 
     >>> matrix = [[2, 3, 4], [4, 5, 6, 3], [5, 6]]
 
@@ -104,8 +99,7 @@ cows must have same size
     TypeError: Each row of the matrix must have the same size
 
 
-Matrix must be list of lists and element from list must be int or float 
------------------------------------------------------------------------
+Matrix must be list of lists and element from list must be int or float:
 
     >>> matrix = [[2, 3, "hola"], [4, "bob", 6, 3], [5, 6]]
 
@@ -142,8 +136,7 @@ Matrix must be list of lists and element from list must be int or float
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Missing arguments or more than two
-----------------------------------
+Missing arguments or more than two:
 
     >>> matrix_divided(matrix, 16, 3)
     Traceback (most recent call last):
@@ -157,7 +150,3 @@ Missing arguments or more than two
     >>> matrix_divided()
     Traceback (most recent call last):
     TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
-
-    >>> matrix_divided()
-    Traceback (most recent call last):
-    SyntaxError: invalid syntax
