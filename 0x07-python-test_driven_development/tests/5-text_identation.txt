@@ -1,0 +1,191 @@
+======================
+Test cases for 5-text_indentation.py
+======================
+
+This library has a function that  prints a text with 2 
+new lines after each of these characters: ``.``, ``?`` and ``:``
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Documentation
+=============
+
+    >>> module_doc = __import__("5-text_indentation").__doc__
+    >>> print(len(module_doc) > 0)
+    True
+
+    >>> func_doc = __import__("5-text_indentation").text_indentation.__doc__
+    >>> print(len(func_doc) > 0)
+    True
+
+
+General usege
+==============
+Strings as input, the program should work properly
+no spaces at the beggining or at the end of each line
+
+Normal strings:
+
+    >>> string = "Lorem: ipsum dolor sit amet, consectetur adipiscing elit."
+    
+    >>> text_indentation(string)
+    Lorem:
+    <BLANKLINE>
+    ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+
+Long string:
+
+    >>> string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin ultrices nisl at tincidunt. Donec tempor dictum libero vitae cursus. Ut feugiat augue vel fringilla fringilla. Quisque viverra dolor tellus, scelerisque varius nisi accumsan eget. Pellentesque consequat ultrices lobortis. Pellentesque turpis diam, congue ac consequat a, dapibus et sem. Nulla sed libero velit. Fusce pellentesque a mi quis hendrerit. Etiam iaculis velit non massa tincidunt,"
+
+    >>> text_indentation(string)
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Integer sollicitudin ultrices nisl at tincidunt.
+    <BLANKLINE>
+    Donec tempor dictum libero vitae cursus.
+    <BLANKLINE>
+    Ut feugiat augue vel fringilla fringilla.
+    <BLANKLINE>
+    Quisque viverra dolor tellus, scelerisque varius nisi accumsan eget.
+    <BLANKLINE>
+    Pellentesque consequat ultrices lobortis.
+    <BLANKLINE>
+    Pellentesque turpis diam, congue ac consequat a, dapibus et sem.
+    <BLANKLINE>
+    Nulla sed libero velit.
+    <BLANKLINE>
+    Fusce pellentesque a mi quis hendrerit.
+    <BLANKLINE>
+    Etiam iaculis velit non massa tincidunt,
+
+Testing spaces:
+
+    >>> string = "Hello Holbie"
+
+    >>> text_indentation(string)
+    Hello Holbie
+
+    >>> string = "   Hello Holbie    "
+
+    >>> text_indentation(string)
+    Hello Holbie
+
+Testing multiple spaces:
+
+    >>> string = "  hello,    fine:  dating??   it's ok,,,,.  bye?"
+
+    >>> text_indentation(string)
+    hello,    fine:
+    <BLANKLINE>
+    dating?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    it's ok,,,,.
+    <BLANKLINE>
+    bye?
+    <BLANKLINE>
+
+
+    >>> string = "1        .2         3.     end:"
+
+    >>> text_indentation(string)
+    1        .
+    <BLANKLINE>
+    2         3.
+    <BLANKLINE>
+    end:
+    <BLANKLINE>
+
+    >>> string = "..::??"
+
+    >>> text_indentation(string)
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+
+Punctuation at the end:
+
+    >>> string = "ssssssss, sssssssss. ssssssssssss."
+
+    >>> text_indentation(string)
+    ssssssss, sssssssss.
+    <BLANKLINE>
+    ssssssssssss.
+    <BLANKLINE>
+
+Leading with whitespace at the end:
+
+    >>> string = "ssssssss, sssssssss. ssssssssssss.       "
+
+    >>> text_indentation(string)
+    ssssssss, sssssssss.
+    <BLANKLINE>
+    ssssssssssss.
+    <BLANKLINE>
+
+Handling Erros
+==============
+Handling not allowed arguments
+
+    >>> string = 13
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = float('inf')
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = float('NaN')
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = [1, 2, 3]
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = {"hola", "hola"}
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = 3.5
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = True
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = False
+
+    >>> text_indentation(string)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> string = ""
+
+    >>> text_indentation(string)
