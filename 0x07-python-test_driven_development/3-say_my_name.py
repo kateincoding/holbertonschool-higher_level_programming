@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 This is "3-say_my_name.py" module
-this module contains say_my_name function that prints My name is <first name> <last name>
+this module contains say_my_name function that
+prints My name is <first name> <last name>
 """
 
 

@@ -1,0 +1,173 @@
+================================
+Test cases for 4-print_square.py
+================================
+
+This library has a function that prints a square:
+The side of the square is provided. That values
+provided must be only strings, otherwise, TypeError 
+will be split with error messages.
+
+    >>> print_square = __import__('4-print_square').print_square
+
+Documentation
+=============
+Here we verify if our modules an funtions are documented, for holberton requirements is a must.
+we use __doc__ to verify module's and function's Documentation
+    >>> module_doc = __import__("4-print_square").__doc__
+    >>> print(len(module_doc) > 0)
+    True
+
+    >>> funciont_doc = __import__("4-print_square").print_square.__doc__
+    >>> print(len(funciont_doc) > 0)
+    True
+
+Test Cases
+==========
+
+``4-print_square`` will take one argument that must be a positive integer
+and print the value of the size with #
+
+Testing with 0
+
+    >>> print_square(0)
+    >>> 
+
+Testing with positive integers
+
+    >>> print_square(1)
+    #
+
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+Testing Arguments
+=================
+``print_square`` should raise TypeError
+
+Passing empty Arguments
+
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Passing 1 argument
+
+    >>> print_square(2)
+    ##
+    ##
+
+Passing 2 arguments
+
+    >>> print_square(3, 2)
+    Traceback (most recent call last):
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+TypeError: Invalid Argument
+===========================
+We have to test all cases with invalid arguments
+
+Passing a negative number
+
+
+Passing a float number
+
+    >>> print_square(0.0)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square(3.0)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing a negative float value
+
+    >>> print_square(-3.0)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square(-10.0)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing a string
+
+    >>> print_square("2")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing a list
+
+    >>> print_square([2])
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing a tuple
+
+    >>> print_square((2, 1))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing a dictionary
+
+    >>> print_square({"P": 1})
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing a set
+
+    >>> print_square({1})
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Passing None
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Infinite test case
+==================
+We have to test infinit number(float('inf')) and not a number
+(float('NaN'))
+
+    >>> print_square(float('inf'))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square(float('Nan'))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square(-float('Nan'))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Big numbers
+===========
+
+Parssing a really big number
+
+    >>> print_square(214748364821474836482147483648214748364889)
+    Traceback (most recent call last):
+    OverflowError: cannot fit 'int' into an index-sized integer
+
+True or False
+=============
+
+Parsing True and false as arguments
+    >>> print_square(True)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> print_square(False)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
