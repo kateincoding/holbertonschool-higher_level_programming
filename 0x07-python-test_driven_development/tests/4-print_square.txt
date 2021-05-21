@@ -151,15 +151,6 @@ We have to test infinit number(float('inf')) and not a number
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-Big numbers
-===========
-
-Parssing a really big number
-
-    >>> print_square(214748364821474836482147483648214748364889)
-    Traceback (most recent call last):
-    OverflowError: cannot fit 'int' into an index-sized integer
-
 True or False
 =============
 
