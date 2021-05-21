@@ -1,0 +1,152 @@
+======================
+Test cases for 0-add_integer.py
+======================
+
+This library has a function that adds two integers, Tha values
+provided must be only integers of float, otherwise, TypeError 
+will be split with error messages.
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Documentation
+=============
+Here we verify if our modules an funtions are documented, for holberton requirements is a must.
+we use __doc__ to verify module's and function's Documentation
+    >>> module_doc = __import__("0-add_integer").__doc__
+    >>> print(len(module_doc) > 0)
+    True
+
+    >>> funciont_doc = __import__("0-add_integer").add_integer.__doc__
+    >>> print(len(funciont_doc) > 0)
+    True
+
+Test Cases
+==========
+
+``add_integer`` will take two arguments that must be int or float then return the addition
+here we will address all possible test cases so that the function is unbeatable
+!b equals 98 as default!
+
+Using the default b number(98)
+
+    >>> add_integer(10)
+    108
+    >>> add_integer(-5)
+    93
+
+Testing general additions
+-------------------------
+
+    >>> add_integer(1, 2)
+    3
+
+    >>> add_integer(100, -2)
+    98
+
+Testing full negative numbers
+-----------------------------
+
+    >>> add_integer(-5, -5)
+    -10
+    >>> add_integer(15, -5)
+    10
+
+    >>> add_integer(-15, 5)
+    -10
+
+Float arguments
+===============
+``add_integer`` should convert flaots to integers before make the addition
+
+Passing float numbers
+---------------------
+
+    >>> add_integer(13.5, 5)
+    18
+
+    >>> add_integer(13.8, 5.3)
+    18
+
+    >>> add_integer(-13.5, -5.34)
+    -18
+
+Test parsing none as input
+==========================
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+infinity
+========
+We have to test infinit number(float('inf')) and not a number
+(float('NaN')).
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('Nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(-float('Nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+TypeError
+=========
+Here we check TypeErrors tuple , string, etc
+    >>> add_integer("hello", 2)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(2, "hola")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer({'hola', 3}, 2)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(15, [2, 3])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+Big numbers
+===========
+Parcing a really big number
+    >>> add_integer(2147483648214748364821474836482147483648, 2)
+    2147483648214748364821474836482147483650
+
+
+True False(Bool Python)
+==========
+Parcing True and false as arguments
+    >>> add_integer(15, False)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer(True, 33)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+Testing arguments
+=================
+Parcing 0 args, one arg and more thant two args
+minimun arguments needed: 1
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+    >>> add_integer(23)
+    121
+
+    >>> add_integer(3, 4, 13)
+    Traceback (most recent call last):
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> add_integer(,)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
