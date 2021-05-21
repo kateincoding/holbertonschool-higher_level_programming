@@ -14,11 +14,10 @@ class TestMaxInteger(unittest.TestCase):
 
         self.assertTrue(len(max_integer.__doc__) > 0)
 
-
     def test_positives(self):
         """only positive"""
         self.assertEqual(max_integer([1, 3, 5, 7]), 7)
-        
+
         self.assertEqual(max_integer([-100, 34, 55, 0]), 55)
 
         self.assertEqual(max_integer([-100, 34, 55, 0]), 55)
@@ -118,11 +117,8 @@ class TestMaxInteger(unittest.TestCase):
         test_list = [1, 2, [3], 46]
         self.assertRaises(TypeError)
 
-        test_list = [1, 2, float('inf'), 46]
-        self.assertRaises(TypeError)
-
         test_list = []
-        self.assertRaises(TypeError)
+        self.assertEqual(max_integer(test_list), None)
 
         test_list = [1, 2, True, 46]
         self.assertRaises(TypeError)
