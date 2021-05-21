@@ -24,6 +24,8 @@ General usege
 Strings as input, the program should work properly
 no spaces at the beggining or at the end of each line
 
+# doctest_blankline.py
+
 Normal strings:
 
     >>> string = "Lorem: ipsum dolor sit amet, consectetur adipiscing elit."

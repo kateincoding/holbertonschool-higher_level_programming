@@ -1,0 +1,163 @@
+======================
+Test cases for 2-matrix_divided.py
+======================
+
+This library has a function that divides all elements of a matrix.
+The list must have same size cows , and each element must be int or 
+float, div agrument must be int and not 0
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+Documentation
+=============
+Here we verify if our modules an funtions are documented, for holberton requirements is a must.
+we use __doc__ to verify module's and function's Documentation
+
+    >>> module_doc = __import__("2-matrix_divided").__doc__
+    >>> print(len(module_doc) > 0)
+    True
+
+    >>> funciont_doc = __import__("2-matrix_divided").matrix_divided.__doc__
+    >>> print(len(funciont_doc) > 0)
+    True
+
+
+General and basic divisions
+===========================
+Testin few basic divisions, parging normal arguments
+
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+    >>> matrix_divided(matrix, 155)
+    [[0.01, 0.01, 0.02], [0.03, 0.03, 0.04]]
+
+    >>> matrix_divided(matrix, 1000000)
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+    >>> matrix_divided([[3]], 5)
+    [[0.6]]
+
+    >>> matrix_divided([[3],[6]], 5)
+    [[0.6], [1.2]]
+
+Parcing negative numbers
+------------------------
+
+    >>> matrix_divided([[-14],[-13]], -5)
+    [[2.8], [2.6]]
+
+    >>> matrix_divided(matrix , 10 - 5)
+    [[0.2, 0.4, 0.6], [0.8, 1.0, 1.2]]
+
+    >>> matrix_divided(matrix , -100000)
+    [[-0.0, -0.0, -0.0], [-0.0, -0.0, -0.0]]
+
+Mixed Integer and floats
+------------------------
+
+    >>> matrix_divided(matrix , -3.5)
+    [[-0.29, -0.57, -0.86], [-1.14, -1.43, -1.71]]
+
+    >>> matrix_divided([[3.4, 6],[18, 4.46]], 1.3)
+    [[2.62, 4.62], [13.85, 3.43]]
+
+infinity
+========
+parcing ``float('inf')`` and ``float('NaN')``
+
+    >>> matrix_divided(matrix, float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+    >>> matrix_divided(matrix, float('NaN'))
+    [[nan, nan, nan], [nan, nan, nan]]
+
+
+Handling TypeErrors
+===================
+We'll parse not allowed inputs, we espect error messages instead
+
+    >>> matrix = [[2, 3, 4], [4, 5, 6], [4, 5, 6]]
+
+Division is not allowed
+-----------------------
+
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+Only int of float as second argument
+------------------------------------
+
+    >>> matrix_divided(matrix, "hello")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+cows must have same size
+------------------------
+
+    >>> matrix = [[2, 3, 4], [4, 5, 6, 3], [5, 6]]
+
+    >>> matrix_divided(matrix, 13)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+
+Matrix must be list of lists and element from list must be int or float 
+-----------------------------------------------------------------------
+
+    >>> matrix = [[2, 3, "hola"], [4, "bob", 6, 3], [5, 6]]
+
+    >>> matrix_divided(matrix, 13)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [[2, 3, 3], {3, 4}, [5, 6]]
+
+    >>> matrix_divided(matrix, 13)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided(None, 13)
+    Traceback (most recent call last):  
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = []
+
+    >>> matrix_divided(matrix, 13)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [[], [], []]
+
+    >>> matrix_divided(matrix, 15)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+    >>> matrix = [[1, 3, 4], (1, 2, 3), [1, 2, 3]]
+
+    >>> matrix_divided(matrix, 16)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Missing arguments or more than two
+----------------------------------
+
+    >>> matrix_divided(matrix, 16, 3)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+    
+    >>> matrix_divided(matrix)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
