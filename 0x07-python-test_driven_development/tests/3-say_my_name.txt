@@ -1,0 +1,213 @@
+======================
+Test cases for 3-say_my_name.py
+======================
+
+This library has a function that prints a full name:
+My name is <first name> <last name>adds , That values
+provided must be only strings, otherwise, TypeError 
+will be split with error messages.
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Documentation
+=============
+Here we verify if our modules an funtions are documented, for holberton requirements is a must.
+we use __doc__ to verify module's and function's Documentation
+    >>> module_doc = __import__("3-say_my_name").__doc__
+    >>> print(len(module_doc) > 0)
+    True
+
+    >>> funciont_doc = __import__("3-say_my_name").say_my_name.__doc__
+    >>> print(len(funciont_doc) > 0)
+    True
+
+Test Cases
+==========
+
+``say_my_name`` will take two arguments that must be strings then print the full name
+here we will address all possible test cases so that the function is unbeatable
+!last_name equals "" as default!
+
+Using the default last_name string("")
+
+    >>> say_my_name("Bob")
+    My name is Bob 
+    >>> say_my_name("Mr Bob")
+    My name is Mr Bob 
+
+Testing general print
+
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+With spaces
+
+    >>> say_my_name("John ", "Lenon")
+    My name is John  Lenon
+
+    >>> say_my_name("John ", "Lenon ")
+    My name is John  Lenon 
+
+Empty strings
+
+    >>> say_my_name("", "")
+    My name is  
+
+New Line
+
+# doctest_blankline.py
+
+    >>> say_my_name("Phil\n", "Clinton\n")
+    My name is Phil
+     Clinton
+    <BLANKLINE>
+
+Testing Arguments
+=================
+``say_my_name`` should raise TypeError 
+
+Passing empty Arguments
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Passing 1 Argument
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+Passing 2 Arguments
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+Passing 3 Arguments
+
+    >>> say_my_name("John ", "Lenon", "Paul")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name(,)
+    Traceback (most recent call last):
+    SyntaxError: invalid syntax
+
+TypeError: Invalid first Argument
+=================================
+We have to test all cases of invalid first argument
+
+Passing an integer
+
+    >>> say_my_name(1, "John")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing a float
+
+    >>> say_my_name(1.0, "John")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing a list
+
+    >>> say_my_name(['B', 'o', 'b'], "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing a tuple
+
+    >>> say_my_name(('B', 'o', 'b'), "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing a dictionary
+
+    >>> say_my_name({"name": "Bob"}, "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing a set
+
+    >>> say_my_name({"Bob", "John"}, "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name({"John"}, "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing None
+
+    >>> say_my_name(None, "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Passing True and False
+
+    >>> say_my_name(True, "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(False, "Clinton")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+TypeError: Invalid Second Argument
+=================================
+We have to test all cases of invalid second argument
+
+Passing an integer
+
+    >>> say_my_name("John", 1)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing a float
+
+    >>> say_my_name("John", 2.0)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing a list
+
+    >>> say_my_name("Bob", ['R', 'u', 'e'])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing a tuple
+
+    >>> say_my_name("Bob", ('R', 'u', 'e'))
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing a dictionary
+
+    >>> say_my_name("Bob", {"last_name": "Rue"})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing a set
+
+    >>> say_my_name("Bob", {"Rue", "Clinton"})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("John", {"Clinton"})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing None
+
+    >>> say_my_name("Bob", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Passing True and False
+
+    >>> say_my_name("Bob", True)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Bob", False)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
