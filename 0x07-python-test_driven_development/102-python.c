@@ -9,7 +9,6 @@
 void print_python_string(PyObject *p)
 {
 	ssize_t length;
-	wchar_t *str;
 
 	printf("[.] string object info");
 
@@ -26,7 +25,5 @@ void print_python_string(PyObject *p)
 
 	length = PyUnicode_GET_LENGTH(p);
 	printf("  length: %ld\n", length);
-
-	str = PyUnicode_AsUTF8AndSize(p, &length);
-	printf("  value: %ls\n", str);
+	printf("  value: %ls\n", PyUnicode_AsWideCharString(p, &length));
 }
