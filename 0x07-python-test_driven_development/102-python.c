@@ -5,10 +5,11 @@
 /**
  * print_python_string - function that prints Python strings
  * @p: Python string
+ * Return: void
  */
 void print_python_string(PyObject *p)
 {
-	ssize_t length;
+	ssize_t len;
 
 	printf("[.] string object info");
 
@@ -23,7 +24,7 @@ void print_python_string(PyObject *p)
 	else
 		printf("  type: compact unicode object\n");
 
-	length = PyUnicode_GET_LENGTH(p);
-	printf("  length: %ld\n", length);
-	printf("  value: %ls\n", PyUnicode_AsWideCharString(p, &length));
+	len = PyUnicode_GET_LENGTH(p);
+	printf("  length: %ld\n", len);
+	printf("  value: %s\n", PyUnicode_AsUTF8AndSize(p, &len));
 }
