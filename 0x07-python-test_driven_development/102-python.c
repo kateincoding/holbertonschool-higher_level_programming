@@ -15,7 +15,7 @@ void print_python_string(PyObject *p)
 	if (strcmp(p->ob_type->tp_name, "str") != 0)
 	{
 			printf("  [ERROR] Invalid String Object\n");
-		return;
+			return;
 	}
 
 	if (PyUnicode_IS_COMPACT_ASCII(p))
