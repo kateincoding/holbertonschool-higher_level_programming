@@ -8,7 +8,7 @@
  */
 void print_python_string(PyObject *p)
 {
-	long int len;
+	ssize_t len;
 
 	printf("[.] string object info");
 
@@ -19,11 +19,11 @@ void print_python_string(PyObject *p)
 	}
 
 	if (PyUnicode_IS_COMPACT_ASCII(p))
-			printf("  type: compact ascii\n");
+		printf("  type: compact ascii\n");
 	else
-			printf("  type: compact unicode object\n");
+		printf("  type: compact unicode object\n");
 
-	len = ((PyASCIIObject*)p)->length;
+	len = PyUnicode_GET_LENGTH(p);
 	printf("  length: %ld\n", len);
 	printf("  value: %ls\n", PyUnicode_AsUTF8AndSize(p, &len));
 }
