@@ -96,8 +96,6 @@ def matrix_mul(m_a, m_b):
     if m_b == []:
         raise ValueError(b_empty_error)
 
-
-
     for row in m_a:
         if row == []:
             raise ValueError(a_empty_error)
