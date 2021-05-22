@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include <Python.h>
-#include <string.h>
 
 /**
  * print_python_string - function that prints Python strings
@@ -9,7 +7,7 @@
  */
 void print_python_string(PyObject *p)
 {
-	ssize_t len;
+	long int len;
 
 	printf("[.] string object info");
 
@@ -26,5 +24,5 @@ void print_python_string(PyObject *p)
 
 	len = PyUnicode_GET_LENGTH(p);
 	printf("  length: %ld\n", len);
-	printf("  value: %s\n", PyUnicode_AsUTF8AndSize(p, &len));
+	printf("  value: %ls\n", PyUnicode_AsUTF8AndSize(p, &len));
 }
