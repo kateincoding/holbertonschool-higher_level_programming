@@ -132,5 +132,38 @@ class TestMaxInteger(unittest.TestCase):
         test_list = None
         self.assertRaises(TypeError)
 
+        self.assertRaises(TypeError, max_integer, ["h", 1])
+        self.assertRaises(TypeError, max_integer, [2, [2, 1]])
+
+        self.assertEqual(max_integer([]), None)
+        self.assertEqual(max_integer([3]), 3)
+        self.assertEqual(max_integer([-3]), -3)
+        self.assertEqual(max_integer([-1, -2, -3]), -1)
+        self.assertEqual(max_integer([15, 10, 5]), 15)
+        self.assertEqual(max_integer([15, 10, 5, -5, -10, 15]), 15)
+        self.assertEqual(max_integer([15, 15, 15]), 15)
+
+        e = []
+        self.assertIsNone(max_integer(e))
+
+        o = [1]
+        self.assertEqual(max_integer(o), 1)
+
+        e = [2, 10, 8, 36, 14, 50]
+        self.assertEqual(max_integer(e), 50)
+
+        m = [2, 10, 8, 360, 14, 50]
+        self.assertEqual(max_integer(m), 360)
+
+        b = [200, 10, 8, 36, 14, 50]
+        self.assertEqual(max_integer(b), 200)
+
+        n = [-6, -50, -75, -1, -100]
+        self.assertEqual(max_integer(n), -1)
+
+        string = [1, 2, "Hello", 4, 5]
+        with self.assertRaises(TypeError):
+            max_integer(string)
+
 if __name__ == '__main__':
     unittest.main()
