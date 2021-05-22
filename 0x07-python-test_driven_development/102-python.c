@@ -14,14 +14,14 @@ void print_python_string(PyObject *p)
 
 	if (strcmp(p->ob_type->tp_name, "str") != 0)
 	{
-		printf("  [ERROR] Invalid String Object\n");
+			printf("  [ERROR] Invalid String Object\n");
 		return;
 	}
 
 	if (PyUnicode_IS_COMPACT_ASCII(p))
-		printf("  type: compact ascii\n");
+			printf("  type: compact ascii\n");
 	else
-		printf("  type: compact unicode object\n");
+			printf("  type: compact unicode object\n");
 
 	len = ((PyASCIIObject*)p)->length;
 	printf("  length: %ld\n", len);
