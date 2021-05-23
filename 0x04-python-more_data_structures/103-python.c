@@ -1,5 +1,10 @@
 #include <Python.h>
 
+/**
+ * print_python_bytes - prints info about Python bytes (hexa ascii)
+ * @p: Python Object
+ * Return: void
+ */
 void print_python_bytes(PyObject *p)
 {
 	int i = 0, bsize = 0;
@@ -15,7 +20,11 @@ void print_python_bytes(PyObject *p)
 	printf("  size: %d\n", bsize);
 	str = ((PyBytesObject *)p)->ob_sval;
 	printf("  trying string: %s\n", str);
-	printf("  first 10 bytes:");
+
+	if (bsize < 10)
+		printf("  first %d bytes:", bsize + 1);
+	else
+		printf("  first 10 bytes:");
 
 	for (i = 0; (i <= bsize) && (i <= 10); i++)
 	{
@@ -27,7 +36,7 @@ void print_python_bytes(PyObject *p)
 /**
  * print_python_list_info - prints info about Python lists
  * @p: Python Object
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * Return: void
  */
 void print_python_list(PyObject *p)
 {
@@ -43,7 +52,7 @@ void print_python_list(PyObject *p)
 	for (i = 0; i < list_size; i++)
 	{
 		item = PyList_GetItem(p, i);
-		printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
+		printf("Element %ld: %s\n", i, (((PyObject *)p)->ob_type)->tp_name);
         if (PyBytes_Check(item))
             print_python_bytes(item);
 	}
