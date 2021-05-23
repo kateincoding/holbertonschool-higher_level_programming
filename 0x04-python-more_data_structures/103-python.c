@@ -10,13 +10,13 @@ void print_python_bytes(PyObject *p)
 	int i = 0, bsize = 0;
 	char *str;
 
+	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	bsize = PyBytes_Size(p);
-    printf("[.] bytes object info\n");
 	printf("  size: %d\n", bsize);
 	str = ((PyBytesObject *)p)->ob_sval;
 	printf("  trying string: %s\n", str);
