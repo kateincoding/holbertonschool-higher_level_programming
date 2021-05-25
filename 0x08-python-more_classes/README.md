@@ -40,14 +40,33 @@ What is and what does contain __dict__ of a class and of an instance of a class
 How does Python find the attributes of an object or class
 How to use the getattr function
 
+## Differente between str and repr
 
+Check if the str of eval(repr) will be the same of str:
+,,,
+    my_rectangle = Rectangle(2, 4)
+    print(str(my_rectangle))
+
+    new_rectangle = eval(repr(my_rectangle))
+    print(str(new_rectangle))
+,,,
 
 ## Functions
 
 ##|File|Description
 ---|---|---
-0|[0-rectangle.py](./0-rectangle.py)|0. create the class Rectangle
-
+0|[0-rectangle.py](./0-rectangle.py)|0. create the class of a simple Rectangle
+1|[1-rectangle.py](./1-rectangle.py)|1. Real definition of a rectangle
+2|[2-rectangle.py](./2-rectangle.py)|2. Area and Perimeter
+3|[3-rectangle.py](./3-rectangle.py)|3. String representation
+4|[4-rectangle.py](./4-rectangle.py)|4. Eval is magic
+5|[5-rectangle.py](./5-rectangle.py)|5. Detect instance deletion
+6|[6-rectangle.py](./6-rectangle.py)|6. How many instances
+mandatory
+7|[7-rectangle.py](./7-rectangle.py)|7. Change representation
+mandatory
+8|[8-rectangle.py](./8-rectangle.py)|8. Compare rectangles
+9|[9-rectangle.py](./9-rectangle.py)|9. A square is a rectangle
 
 ## Test Files
 
