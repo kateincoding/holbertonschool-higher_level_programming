@@ -4,14 +4,9 @@
 
 class Rectangle:
     """Constructor of the empty class Rectangle"""
-
-    number_of_instances = 0
-    print_symbol = '#'
-
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -56,13 +51,12 @@ class Rectangle:
     def __str__(self):
         """Print a Rectangle to stdout"""
         result = ""
-        symbol = str(self.print_symbol)
         if self.width <= 0 or self.height <= 0:
             return result
         else:
             for j in range(self.height):
                 for i in range(self.width):
-                    result += symbol
+                    result += "#"
                 if (j != (self.height - 1)):
                     result = result + "\n"
         return result
@@ -70,8 +64,3 @@ class Rectangle:
     def __repr__(self):
         """Method that return an Unambigous representation of str"""
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
-
-    def __del__(self):
-        """Method that executes when object is deleted"""
-        print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
