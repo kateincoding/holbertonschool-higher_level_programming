@@ -3,13 +3,20 @@
 
 void print_python_float(PyObject *p)
 {
+	double float_nbr;
+	char *float_str;
+
     printf("[.] float object info\n");
     if ((strcmp(p->ob_type->tp_name, "float")) != 0)
 	{
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-    printf("value: %10f\n", ((PyFloatObject *)p)->ob_fval);
+    float_nbr = ((PyFloatObject *)p)->ob_fval;
+	float_str = PyOS_double_to_string(float_nbr, 'r', 0,
+				     Py_DTSF_ADD_DOT_0, Py_DTST_FINITE);
+
+	printf("  value: %s\n", float_str);
 }
 
 /**
