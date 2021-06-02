@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""methods module"""
 
 
 def is_same_class(obj, a_class):
