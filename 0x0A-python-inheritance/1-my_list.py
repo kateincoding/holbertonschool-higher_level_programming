@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Class that inherits from type list"""
+"""Class definition"""
 
 
 class MyList(list):
-    """Constructor of Class MyList inherited"""
+    """Class MyList inherited"""
 
     def print_sorted(self):
         """prints the sorted"""

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Empty Class BaseGeometry"""
+"""Class definition of the module"""
 
 
 class BaseGeometry():
-    """Constructor of the class"""
+    """Empty Class BaseGeometry"""
     pass
