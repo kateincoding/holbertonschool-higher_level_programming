@@ -1,0 +1,81 @@
+======================
+Test cases for 7-base_geometry.py
+======================
+
+This library has a class Base Geometry
+Inside of the class we have 2 methods:
+1. method area: raise an exception
+2. integer_validator: validate if it is type of name
+
+Importing class
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Documentation
+=============
+Here we verify if our modules an funtions are documented, for holberton requirements is a must.
+we use __doc__ to verify module's and function's Documentation
+
+    >>> module_doc = __import__("7-base_geometry").__doc__
+    >>> print(len(module_doc) > 0)
+    True
+
+    >>> class_doc = __import__("7-base_geometry").BaseGeometry.__doc__
+    >>> print(len(class_doc) > 0)
+    True
+
+    >>> area_doc = __import__("7-base_geometry").BaseGeometry.area.__doc__
+    >>> print(len(area_doc) > 0)
+    True
+
+    >>> integer_validator_doc = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+    >>> print(len(integer_validator_doc) > 0)
+    True
+
+Testing Method Area
+===================
+
+``Area`` is not yet implemented so it will raise an exception
+
+Testing calling Area:
+
+    >>> bg = BaseGeometry()
+    >>> try:
+    ...     print(bg.area())
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    ... 
+    [Exception] area() is not implemented
+
+Testing Method Integer Validator
+================================
+
+``Integer_validator`` will check if type(value) is an integer, otherwhise will raise an error
+
+Checking True cases: integer>0
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12)
+    >>>
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("width", 89)
+    >>>
+
+Testing with not integer:
+
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+Testing with zero:
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
+Testing with negative numbers:
+
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ValueError: distance must be greater than 0
