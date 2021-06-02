@@ -1,5 +1,7 @@
 # 0x0A. Python - Inheritance
 
+![Inheritance types](https://bytesofgigabytes.com/IMAGES/java/Inheritance/typesofInheritance.png)
+
 ## Lecture Resources
 
 Read or watch:
