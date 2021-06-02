@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""methods module"""
 
 
 def lookup(obj):
