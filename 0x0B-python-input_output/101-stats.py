@@ -20,11 +20,17 @@ try:
     for line in sys.stdin:
         line = line.split()
 
-        filesize += int(line[-1])
+        try:
+            filesize += int(line[-1])
+        except Exception:
+            pass
 
-        code = line[-2]
-        if code in list(stc.keys()):
-            stc[code] += 1
+        try:
+            code = line[-2]
+            if code in list(stc.keys()):
+                stc[code] += 1
+        except Exception:
+            pass
 
         count += 1
 
