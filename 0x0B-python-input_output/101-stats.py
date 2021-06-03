@@ -30,11 +30,13 @@ try:
 
         if count % 10 == 0:
             print("File size: {}".format(filesize))
-            for key in list(stc.keys()):
-                print("{}: {}".format(key, stc[key]))
+            for key in sorted(stc.keys()):
+                if stc[key] > 0:
+                    print("{}: {}".format(key, stc[key]))
 
 except KeyboardInterrupt:
     print("File size: {}".format(filesize))
-    for key in list(stc.keys()):
-        print("{}: {}".format(key, stc[key]))
+    for key in sorted(stc.keys()):
+        if stc[key] > 0:
+            print("{}: {}".format(key, stc[key]))
     raise
