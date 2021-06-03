@@ -22,7 +22,6 @@ try:
                 stc[code] += 1
         except Exception:
             pass
-
         count += 1
 
         if count % 10 == 0:
