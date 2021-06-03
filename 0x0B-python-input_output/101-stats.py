@@ -26,14 +26,14 @@ try:
         count += 1
 
         if count % 10 == 0:
-            print("File size: {}".format(filesize))
+            print("File size: {:d}".format(filesize))
             for key in sorted(stc.keys()):
                 if stc[key] != 0:
-                    print("{}: {}".format(key, stc[key]))
+                    print("{}: {:d}".format(key, stc[key]))
 
 except KeyboardInterrupt:
-    print("File size: {}".format(filesize))
+    print("File size: {:d}".format(filesize))
     for key in sorted(stc.keys()):
         if stc[key] != 0:
-            print("{}: {}".format(key, stc[key]))
+            print("{}: {:d}".format(key, stc[key]))
     raise
