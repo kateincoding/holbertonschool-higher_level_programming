@@ -88,14 +88,18 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """overriding to returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        """overriding to returns [Rectangle] + information"""
         string = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
-        string = string.format(self.id, self.x, self.y, self.width, self.height)
+        string = string.format(self.id, self.x, self.y,
+                               self.width, self.height)
         return string
 
-    def update(self, *args):
-        """that assigns an argument to each attribute"""
+    def update(self, *args, **kwargs):
+        """Method that assigns update attributes"""
         args_list = ["id", "width", "height", "x", "y"]
-        args_key = {"id": self.id, "width": self.width, "height": self.height, "x": self.x, "y": self.y}
-        for count in range(0,args):
-            
+        if args and args[0] is not None:
+            for i in range(len(args)):
+                setattr(self, args_list[i], args[i])
+        elif kwargs is not None:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
