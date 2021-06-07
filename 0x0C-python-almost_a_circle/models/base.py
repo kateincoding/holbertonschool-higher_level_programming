@@ -173,3 +173,5 @@ class Base:
             set_position(square.x, square.y)
             beauty_rectangle(square.size, square.size, art)
             set_position(-1 * square.x, -1 * square.y)
+
+        turtle.done()
