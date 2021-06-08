@@ -472,7 +472,3 @@ class Test_Dictionary_Representation(unittest.TestCase):
         self.assertDictEqual(r2_dict, d)
 
         self.assertEqual(r1 == r2, False)
-
-
-if __name__ == '__main__':
-    unittest.main()
