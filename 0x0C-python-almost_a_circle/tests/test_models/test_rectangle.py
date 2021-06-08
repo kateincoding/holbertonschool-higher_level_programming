@@ -144,15 +144,15 @@ class Test_Display_noxnoy(unittest.TestCase):
         """check if rectangle prints
         case: no x neither y"""
         r1 = Rectangle(3, 3)
-        with patch('sys.stdout', new=StringIO()) as draw:
-            self.assertEqual(draw.getvalue(), "###\n###\n###\n")
+        with patch('sys.stdout', new=StringIO()) as draw12:
+            self.assertEqual(draw12.getvalue(), "###\n###\n###\n")
 
     def display_line(self):
         """check if one size is 1
         case: no x neither y"""
         r2 = Rectangle(3, 1)
-        with patch('sys.stdout', new=StringIO()) as draw:
-            self.assertEqual(draw.getvalue(), "###\n")
+        with patch('sys.stdout', new=StringIO()) as draw12:
+            self.assertEqual(draw12.getvalue(), "###\n")
 
 
 class Test_str(unittest.TestCase):
@@ -162,27 +162,27 @@ class Test_str(unittest.TestCase):
         """check if the method has an ok print"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         r1_result = "[Rectangle] (12) 2/1 - 4/6"
-        with patch('sys.stdout', new=StringIO()) as string:
-            self.assertEqual(string.getvalue(), r1_result)
+        with patch('sys.stdout', new=StringIO()) as string12:
+            self.assertEqual(string12.getvalue(), r1_result)
         r2 = Rectangle(5, 5, 1)
         r2_result = "[Rectangle] (1) 1/0 - 5/5"
-        with patch('sys.stdout', new=StringIO()) as string:
-            self.assertEqual(draw.getvalue(), r2_result)
+        with patch('sys.stdout', new=StringIO()) as string12:
+            self.assertEqual(string12.getvalue(), r2_result)
 
     def check_change_att(self):
         """check if print changed"""
         r3 = Rectangle(7, 1, 1, 2, 3)
         r3_result = "[Rectangle] (3) 1/2 - 7/1"
-        with patch('sys.stdout', new=StringIO()) as string:
-            self.assertEqual(string.getvalue(), r3_result)
+        with patch('sys.stdout', new=StringIO()) as string13:
+            self.assertEqual(string13.getvalue(), r3_result)
         r3.id = 5
         r3.x = 0
         r3.y = 0
         r3.width = 7
         r3.height = 7
         r3_new_result = "[Rectangle] (5) 0/0 - 7/7"
-        with patch('sys.stdout', new=StringIO()) as string:
-            self.assertEqual(string.getvalue(), r3_new_result)
+        with patch('sys.stdout', new=StringIO()) as string14:
+            self.assertEqual(string14.getvalue(), r3_new_result)
 
 
 class Test_Display(unittest.TestCase):
@@ -342,13 +342,11 @@ class Test_Update(unittest.TestCase):
         self.assertEqual(r1.height, 432)
         self.assertEqual(r1.x, 940)
         self.assertEqual(r1.y, 758)
-
-        with self.assertRaisesRegex(AttributeError,
-                                    "'Rectangle' object has no attribute 'other'"):
+        string = "'Rectangle' object has no attribute 'other'"
+        with self.assertRaisesRegex(AttributeError, string):
             self.assertEqual(r1.other, 'random')
-
-        with self.assertRaisesRegex(AttributeError,
-                                    "'Rectangle' object has no attribute 'ok'"):
+        string2 = "'Rectangle' object has no attribute 'ok'"
+        with self.assertRaisesRegex(AttributeError, string2):
             self.assertEqual(r1.ok, 'rand val')
 
     def test_args_and_kwargs(self):
@@ -362,11 +360,11 @@ class Test_Update(unittest.TestCase):
         self.assertEqual(r1.height, 1)
         self.assertEqual(r1.x, 10)
         self.assertEqual(r1.y, 0)
-
-        with self.assertRaisesRegex(AttributeError, "'Rectangle' object has no attribute 'other'"):
+        string3 = "'Rectangle' object has no attribute 'other'"
+        with self.assertRaisesRegex(AttributeError, string3):
             self.assertEqual(r1.other, 'random')
-
-        with self.assertRaisesRegex(AttributeError, "'Rectangle' object has no attribute 'ok'"):
+        string4 = "'Rectangle' object has no attribute 'ok'"
+        with self.assertRaisesRegex(AttributeError, string4):
             self.assertEqual(r1.ok, 'rand val')
 
     def test_1_args_invalid(self):
@@ -446,7 +444,8 @@ class Test_Dictionary_Representation(unittest.TestCase):
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0, 1)
         self.assertEqual(r1.id, 1)
-        with self.assertRaisesRegex(TypeError, "takes 1 positional argument but 2 were given"):
+        string10 = "takes 1 positional argument but 2 were given"
+        with self.assertRaisesRegex(TypeError, string10):
             r1.to_dictionary(239)
 
     def test_ret_dict(self):

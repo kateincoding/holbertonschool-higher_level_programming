@@ -24,7 +24,7 @@ class testcases(unittest.TestCase):
         cls.c4 = Square(5, 6, 7)
         cls.c5 = Square(7, 8, 9, 10)
 
-    #def test_id(self):
+    # def test_id(self):
     #    self.assertEqual(self.c1.id, 1)
     #    self.assertEqual(self.c2.id, 2)
     #    self.assertEqual(self.c3.id, 3)
@@ -145,7 +145,7 @@ class testcases(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.c1.display(1)
 
-    #def test_str(self):
+    # def test_str(self):
     #    """testing __str__"""
     #    self.assertEqual(str(self.c1), "[Square] (1) 0/0 - 1")
     #    self.assertEqual(str(self.c2), "[Square] (2) 3/0 - 2")
