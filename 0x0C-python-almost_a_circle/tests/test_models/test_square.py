@@ -9,6 +9,7 @@ import os
 import json
 from models import square
 from models.base import Base
+from models.rectangle import Rectangle
 from contextlib import redirect_stdout
 Square = square.Square
 
@@ -28,6 +29,17 @@ class testcases(unittest.TestCase):
         cls.c3.id = 3
         cls.c4.id = 4
         cls.c5.id = 10
+
+    def test_square_instance(self):
+        """Test if Square is instance of Rectangle and Base"""
+        s6 = Square(5, 2, 1, 20)
+        self.assertEqual(type(s6), Square)
+        self.assertTrue(type(s6) == Square)
+        self.assertFalse(type(s6) == Rectangle)
+        self.assertFalse(type(s6) == Base)
+        self.assertTrue(isinstance(s6, Base))
+        self.assertTrue(isinstance(s6, Rectangle))
+        self.assertTrue(isinstance(s6, Square))
 
     def test_id(self):
         self.assertEqual(self.c1.id, 1)
