@@ -39,9 +39,9 @@ class Rectangle(Base):
     def height(self, value):
         """height setter"""
         if type(value) is not int:
-            raise TypeError("heigth must be an integer")
+            raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("heigth must be > 0")
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -98,11 +98,16 @@ class Rectangle(Base):
         """Method that assigns update attributes"""
         args_list = ["id", "width", "height", "x", "y"]
         if args and args[0] is not None:
-            for i in range(len(args)):
+            if len(args) > len(args_list):
+                max_len = len(args_list)
+            else:
+                max_len = len(args)
+            for i in range(max_len):
                 setattr(self, args_list[i], args[i])
         elif kwargs is not None:
             for key in kwargs:
-                setattr(self, key, kwargs[key])
+                if hasattr(self, key) is True:
+                    setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
         """Method that returns the dictionary representation of a Rectangle"""
