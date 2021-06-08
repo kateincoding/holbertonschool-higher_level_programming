@@ -491,10 +491,3 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(1, -1)
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r = Rectangle(1, 0)
-
-    def test_str(self):
-        """Test the str method"""
-        self.assertEqual(str(self.r1), "[Rectangle] (1) 0/0 - 10/10")
-        self.assertEqual(str(self.r2), "[Rectangle] (2) 4/0 - 2/3")
-        self.assertEqual(str(self.r3), "[Rectangle] (9) 7/8 - 5/6")
-        self.assertEqual(str(self.r4), "[Rectangle] (3) 13/14 - 11/12")
