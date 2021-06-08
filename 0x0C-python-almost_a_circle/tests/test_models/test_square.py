@@ -23,13 +23,18 @@ class testcases(unittest.TestCase):
         cls.c3 = Square(3, 4, 5)
         cls.c4 = Square(5, 6, 7)
         cls.c5 = Square(7, 8, 9, 10)
+        cls.c1.id = 1
+        cls.c2.id = 2
+        cls.c3.id = 3
+        cls.c4.id = 4
+        cls.c5.id = 10
 
-    # def test_id(self):
-    #    self.assertEqual(self.c1.id, 1)
-    #    self.assertEqual(self.c2.id, 2)
-    #    self.assertEqual(self.c3.id, 3)
-    #    self.assertEqual(self.c4.id, 4)
-    #    self.assertEqual(self.c5.id, 10)
+    def test_id(self):
+        self.assertEqual(self.c1.id, 1)
+        self.assertEqual(self.c2.id, 2)
+        self.assertEqual(self.c3.id, 3)
+        self.assertEqual(self.c4.id, 4)
+        self.assertEqual(self.c5.id, 10)
 
     def test_size(self):
         self.assertEqual(self.c1.size, 1)
@@ -145,13 +150,13 @@ class testcases(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.c1.display(1)
 
-    # def test_str(self):
-    #    """testing __str__"""
-    #    self.assertEqual(str(self.c1), "[Square] (1) 0/0 - 1")
-    #    self.assertEqual(str(self.c2), "[Square] (2) 3/0 - 2")
-    #    self.assertEqual(str(self.c3), "[Square] (3) 4/5 - 3")
-    #    self.assertEqual(str(self.c4), "[Square] (4) 6/7 - 5")
-    #    self.assertEqual(str(self.c5), "[Square] (10) 8/9 - 7")
+    def test_str(self):
+        """testing __str__"""
+        self.assertEqual(str(self.c1), "[Square] (1) 0/0 - 1")
+        self.assertEqual(str(self.c2), "[Square] (2) 3/0 - 2")
+        self.assertEqual(str(self.c3), "[Square] (3) 4/5 - 3")
+        self.assertEqual(str(self.c4), "[Square] (4) 6/7 - 5")
+        self.assertEqual(str(self.c5), "[Square] (10) 8/9 - 7")
 
     def test_display_x_y(self):
         """tesing display x-y"""
