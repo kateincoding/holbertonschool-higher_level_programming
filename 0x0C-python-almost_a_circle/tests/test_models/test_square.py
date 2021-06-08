@@ -3,10 +3,6 @@
 test cases for square class
 """
 
-"""
-importing modules
-"""
-
 import unittest
 import io
 import os
@@ -266,3 +262,76 @@ class testcases(unittest.TestCase):
         test5.update(**test4)
         self.assertEqual(str(test5), str(self.c4))
         self.assertNotEqual(test5, self.c4)
+
+    def test_save_to_file(self):
+        """testing save_to_file"""
+        test1 = Square(1, 1, 1, 1)
+        test2 = Square(2, 2, 2, 2)
+        l = [test1, test2]
+        Square.save_to_file(l)
+        with open("Square.json", "r") as file:
+            ls = [test1.to_dictionary(), test2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), file.read())
+
+    def test_empty_str(self):
+        """pasing empy string"""
+        l = []
+        Square.save_to_file(l)
+        with open("Square.json", "r") as file:
+            self.assertEqual("[]", file.read())
+
+    def test_none_str(self):
+        """parsing none"""
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual("[]", file.read())
+
+    def test_create(self):
+        """testing create"""
+        test1 = {"id": 2, "size": 3, "x": 4, "y": 0}
+        test2 = {"id": 9, "size": 6, "x": 7, "y": 8}
+        test1c = Square.create(**test1)
+        test2c = Square.create(**test2)
+        self.assertEqual("[Square] (2) 4/0 - 3", str(test1c))
+        self.assertEqual("[Square] (9) 7/8 - 6", str(test2c))
+        self.assertIsNot(test1, test1c)
+        self.assertIsNot(test2, test2c)
+        self.assertNotEqual(test1, test1c)
+        self.assertNotEqual(test2, test2c)
+
+    def test_loadfromfile(self):
+        """testing load_from_file"""
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        self.assertEqual(Square.load_from_file(), [])
+
+    def test_empty_load(self):
+        """loading empy file"""
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        open("Square.json", 'a').close()
+        self.assertEqual(Square.load_from_file(), [])
+
+    def test_load_f_file(self):
+        """testing normal cases load file"""
+        test1 = Square(2, 3, 4, 5)
+        test2 = Square(7, 8, 9, 10)
+        li = [test1, test2]
+        Square.save_to_file(li)
+        lo = Square.load_from_file()
+        self.assertTrue(type(lo) is list)
+        self.assertEqual(len(lo), 2)
+        test1c = lo[0]
+        test2c = lo[1]
+        self.assertTrue(type(test1c) is Square)
+        self.assertTrue(type(test2c) is Square)
+        self.assertEqual(str(test1), str(test1c))
+        self.assertEqual(str(test2), str(test2c))
+        self.assertIsNot(test1, test1c)
+        self.assertIsNot(test2, test2c)
+        self.assertNotEqual(test1, test1c)
+        self.assertNotEqual(test2, test2c)

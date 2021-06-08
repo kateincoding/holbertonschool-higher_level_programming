@@ -198,7 +198,7 @@ class Test_Display(unittest.TestCase):
         r1 = Rectangle(2, 3, 2, 2)
         with patch('sys.stdout', new=StringIO()) as fake_out:
             r1.display()
-            self.assertEquals(fake_out.getvalue(), "\n\n  ##\n  ##\n  ##\n")
+            self.assertEqual(fake_out.getvalue(), "\n\n  ##\n  ##\n  ##\n")
 
     def test_invalid_attrs(self):
         """Invalid attrs for rectangle"""
@@ -428,11 +428,11 @@ class Test_Update(unittest.TestCase):
 
         # invalid last arg passes because is not taken into account
         r1.update(100, 200, 903, 23, 345, 49, -43)
-        self.assertEquals(r1.id, 100)
-        self.assertEquals(r1.width, 200)
-        self.assertEquals(r1.height, 903)
-        self.assertEquals(r1.x, 23)
-        self.assertEquals(r1.y, 345)
+        self.assertEqual(r1.id, 100)
+        self.assertEqual(r1.width, 200)
+        self.assertEqual(r1.height, 903)
+        self.assertEqual(r1.x, 23)
+        self.assertEqual(r1.y, 345)
 
 
 class Test_Dictionary_Representation(unittest.TestCase):
@@ -445,15 +445,14 @@ class Test_Dictionary_Representation(unittest.TestCase):
         """Pass one argument to function call"""
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0, 1)
-        self.assertEquals(r1.id, 1)
-        with self.assertRaisesRegex(TypeError,
-                                    "takes 1 positional argument but 2 were given"):
+        self.assertEqual(r1.id, 1)
+        with self.assertRaisesRegex(TypeError, "takes 1 positional argument but 2 were given"):
             r1.to_dictionary(239)
 
     def test_ret_dict(self):
         """Test to_dictionary function"""
         r1 = Rectangle(23, 43, 129, 32, 2)
-        self.assertEquals(2, r1.id)
+        self.assertEqual(2, r1.id)
         d_comp = {'id': 2, 'width': 23, 'height': 43, 'x': 129, 'y': 32}
         self.assertDictEqual(r1.to_dictionary(), d_comp)
 
