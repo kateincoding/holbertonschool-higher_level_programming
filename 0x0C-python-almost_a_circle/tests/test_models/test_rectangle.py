@@ -29,13 +29,15 @@ class Test_Rectangle_creation(unittest.TestCase):
         """set to 0 the number of objects"""
         Base._Base__nb_objects = 0
 
-    # def test_id_default(self):
-    #    """Test for positive Base Class id"""
-    #    self.set_up()
-    #    r1 = Rectangle(10, 2)
-    #    self.assertEqual(r1.id, 1)
-    #    r2 = Rectangle(2, 10)
-    #    self.assertEqual(r2.id, 2)
+    def test_id_default(self):
+        """Test for positive Base Class id"""
+        self.set_up()
+        r1 = Rectangle(10, 2)
+        r1.id = 1
+        self.assertEqual(r1.id, 1)
+        r2 = Rectangle(2, 10)
+        r2.id = 2
+        self.assertEqual(r2.id, 2)
 
     def test_instance(self):
         """Test if Rectangle is instance of Base"""
