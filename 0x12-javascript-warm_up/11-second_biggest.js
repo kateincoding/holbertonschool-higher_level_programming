@@ -9,7 +9,7 @@ if (argc >= 2) {
   for (let i = 0; i < argc; i++) {
     numbers.push(argv[i + 2]);
   }
-  numbers.sort((a,b) => a - b);
+  numbers.sort((a, b) => a - b);
   second = numbers[argc - 2];
 }
 console.log(`${second}`);
