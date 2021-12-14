@@ -9,7 +9,7 @@ if (argc >= 2) {
   max = argv[2];
   second = argv[3];
   for (let i = 1; i <= argc; i++) {
-    if (argv[i + 2] > max) {
+    if (argv[i + 2] >= max) {
       second = max;
       max = argv[i + 2];
     }
