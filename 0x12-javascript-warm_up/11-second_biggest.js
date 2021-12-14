@@ -5,13 +5,14 @@ const { argv } = require('process');
 const argc = argv.length - 2;
 let max = 0;
 let second = 0;
-let i = 0;
-do {
-  i++;
-  if (argv[i + 1] > argv[i + 1 - 1]) {
-    second = max;
-    max = argv[i + 2];
+if (argc >= 2) {
+  max = argv[2];
+  second = argv[3];
+  for (let i = 1; i <= argc; i++) {
+    if (argv[i + 2] > max) {
+      second = max;
+      max = argv[i + 2];
+    }
   }
-} while (i <= argc);
-
+}
 console.log(`${second}`);
