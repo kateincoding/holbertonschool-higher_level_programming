@@ -8,7 +8,7 @@ let second = 0;
 let i = 0;
 do {
   i++;
-  if (argv[i + 2] > argv[i + 2 - 1]) {
+  if (argv[i + 1] > argv[i + 1 - 1]) {
     second = max;
     max = argv[i + 2];
   }
