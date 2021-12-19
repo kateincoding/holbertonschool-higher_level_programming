@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" script that protects from a sql injection """
+
+
 from sys import argv
 import MySQLdb
 
