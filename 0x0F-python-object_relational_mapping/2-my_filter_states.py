@@ -18,7 +18,6 @@ if __name__ == '__main__':
           ORDER BY states.id ASC""".format(state)
     cur.execute(sql)
     query_rows = cur.fetchall()
-
     for row in query_rows:
         print(row)
     cur.close()
