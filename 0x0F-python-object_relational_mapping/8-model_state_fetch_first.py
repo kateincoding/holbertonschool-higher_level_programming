@@ -15,6 +15,6 @@ if __name__ == "__main__":
     session = Session()
     if session.query(State).first():
         print("{}: {}".format(state.id, state.name))
-    else
+    else:
         print("Nothing")
     session.close()
