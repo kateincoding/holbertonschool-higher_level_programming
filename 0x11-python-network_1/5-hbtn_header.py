@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that displays the value of the variable X-Request-Id in the response header"""
+"""Script that displays X-Request-Id in the response header"""
 
 
 if __name__ == "__main__":
