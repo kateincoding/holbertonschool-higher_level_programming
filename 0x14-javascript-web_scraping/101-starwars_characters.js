@@ -8,15 +8,22 @@ request(url, function (error, response, body) {
     console.error('error:', error);
   } else {
     const characterList = JSON.parse(body).characters;
-    for (const characterUrl of characterList) {
-      request(characterUrl, function (error, response, body) {
-        if (error) {
-          console.error('error:', error);
-        } else {
-          const peopleJson = JSON.parse(body);
-          console.log(peopleJson.name);
-        }
-      });
-    }
+
+    const length = characterList.length;
+    CharacterRequest(0, characterList[0], characterList, length);
   }
 });
+
+function CharacterRequest (idx, urlChar, characters, limit) {
+  if (idx === limit) { return; }
+  request(urlChar, function (error, response, body) {
+    if (!error) {
+      const rbody = JSON.parse(body);
+      console.log(rbody.name);
+      idx++;
+      CharacterRequest(idx, characters[idx], characters, limit);
+    } else {
+      console.error('error:', error);
+    }
+  });
+}
