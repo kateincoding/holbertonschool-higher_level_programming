@@ -10,7 +10,6 @@ request(url, function (error, response, body) {
   } else {
     fs.writeFile(filename, body, function (err) {
       if (err) throw err;
-      console.log('Document created');
     });
   }
 });
